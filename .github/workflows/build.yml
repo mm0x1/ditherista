@@ -153,7 +153,6 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           target: 'desktop'
-          arch: ${{ matrix.qt_arch }}
           version: ${{ env.QT_VERSION_MAC }}
           modules: 'qtmultimedia'
           setup-python: true
@@ -166,6 +165,10 @@ jobs:
           echo "QT_ROOT_DIR=$QT_ROOT_DIR"
           which qmake || where qmake
           qmake -v
+          echo "Checking installed Qt modules:"
+          ls -la "$QT_ROOT_DIR/" || true
+          ls -la "$QT_ROOT_DIR/lib/" || true
+          find "$QT_ROOT_DIR" -name "*Multimedia*" -type d || true
         shell: bash
 
       - name: Build libdither (macOS)
