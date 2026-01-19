@@ -42,7 +42,6 @@ jobs:
           target: 'desktop'
           arch: win64_msvc2022_64
           version: ${{ env.QT_VERSION_WIN }}
-          modules: 'qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: false
@@ -104,7 +103,6 @@ jobs:
           target: 'desktop'
           arch: win64_mingw
           version: ${{ env.QT_VERSION_WIN }}
-          modules: 'qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: false
@@ -154,7 +152,6 @@ jobs:
         with:
           target: 'desktop'
           version: ${{ env.QT_VERSION_MAC }}
-          modules: 'qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: true
@@ -165,10 +162,6 @@ jobs:
           echo "QT_ROOT_DIR=$QT_ROOT_DIR"
           which qmake || where qmake
           qmake -v
-          echo "Checking installed Qt modules:"
-          ls -la "$QT_ROOT_DIR/" || true
-          ls -la "$QT_ROOT_DIR/lib/" || true
-          find "$QT_ROOT_DIR" -name "*Multimedia*" -type d || true
         shell: bash
 
       - name: Build libdither (macOS)
@@ -216,7 +209,6 @@ jobs:
           target: 'desktop'
           arch: linux_gcc_64
           version: ${{ env.QT_VERSION_NIX }}
-          modules: 'qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: true
