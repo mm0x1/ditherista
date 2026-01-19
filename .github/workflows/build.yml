@@ -42,7 +42,7 @@ jobs:
           target: 'desktop'
           arch: win64_msvc2022_64
           version: ${{ env.QT_VERSION_WIN }}
-          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations'
+          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: false
@@ -104,7 +104,7 @@ jobs:
           target: 'desktop'
           arch: win64_mingw
           version: ${{ env.QT_VERSION_WIN }}
-          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations MinGW'
+          archives: 'qtbase qtdeclarative qtsvg qttools qttranslations qtmultimedia MinGW'
           setup-python: true
           cache: true
           add-tools-to-path: false
@@ -155,7 +155,7 @@ jobs:
           target: 'desktop'
           arch: ${{ matrix.qt_arch }}
           version: ${{ env.QT_VERSION_MAC }}
-          archives: 'qtbase qtdeclarative qtsvg qttools'
+          archives: 'qtbase qtdeclarative qtsvg qttools qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: true
@@ -213,7 +213,7 @@ jobs:
           target: 'desktop'
           arch: linux_gcc_64
           version: ${{ env.QT_VERSION_NIX }}
-          archives: 'qtbase qtdeclarative qtsvg qttools'
+          archives: 'qtbase qtdeclarative qtsvg qttools qtmultimedia'
           setup-python: true
           cache: true
           add-tools-to-path: true
